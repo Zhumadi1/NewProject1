@@ -5,6 +5,7 @@ import company.model.enam.Gender;
 public class User {
     private int id;
     private String name;
+    private int age;
     private Gender gender;
 
     public User(int id, String name, Gender gender) {
@@ -38,6 +39,14 @@ public class User {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override
