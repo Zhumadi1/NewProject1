@@ -8,9 +8,9 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-       User user = new User(1,"Zhumadil",Gender.MALE);
-       User user1 = new User(2,"Aksana",Gender.FEMALE);
-       User user2 = new User(3,"Artur",Gender.MALE);
+       User user = new User(1,"Zhumadil",Gender.MALE,24);
+       User user1 = new User(2,"Aksana",Gender.FEMALE,24);
+       User user2 = new User(3,"Artur",Gender.MALE,14);
 
 
       UserServiceImpl userService = new UserServiceImpl();

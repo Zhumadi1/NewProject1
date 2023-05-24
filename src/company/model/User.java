@@ -8,10 +8,11 @@ public class User {
     private int age;
     private Gender gender;
 
-    public User(int id, String name, Gender gender) {
+    public User(int id, String name, Gender gender, int age) {
         this.id = id;
         this.name = name;
         this.gender = gender;
+        this.age = age;
     }
 
     public User() {
