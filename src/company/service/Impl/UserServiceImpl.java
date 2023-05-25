@@ -3,6 +3,7 @@ import company.dao.UserDao;
 import company.model.User;
 import company.service.UserService;
 import java.util.ArrayList;
+import java.util.function.Function;
 
 public class UserServiceImpl implements UserService {
     UserDao userDao = new UserDao();
@@ -28,9 +29,11 @@ public class UserServiceImpl implements UserService {
         for (User user : userDao.getArrayList()) {
             if(user.getId()==id){
                 userDao.getArrayList().remove(user);
-
             }
         }
+      //  userDao.getArrayList().stream().map(a -> a.getId()==id? userDao.getArrayList().remove(a):a).forEach(System.out::println);
+
+
 
     }
 
