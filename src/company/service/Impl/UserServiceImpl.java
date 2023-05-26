@@ -1,41 +1,50 @@
 package company.service.Impl;
+
 import company.dao.UserDao;
 import company.model.User;
+import company.myException.MyException;
 import company.service.UserService;
+
 import java.util.ArrayList;
-import java.util.function.Function;
 
 public class UserServiceImpl implements UserService {
     UserDao userDao = new UserDao();
+
     @Override
     public void addUser(User user) {
-       userDao.getArrayList().add(user);
+        userDao.getArrayList().add(user);
     }
 
     @Override
     public User getUserById(int id) {
+        boolean booleanId = true;
+
         for (User user : userDao.getArrayList()) {
-            if(user.getId()==id){
+            if (user.getId() == id) {
+                booleanId = false;
                 return user;
-            }else{
-                throw new RuntimeException();
             }
+        }
+        if (booleanId) {
+            throw new MyException("There in no such ID");
         }
         return null;
     }
 
     @Override
     public void deleteById(int id) {
+        boolean bool = true;
         for (User user : userDao.getArrayList()) {
-            if(user.getId()==id){
+            if (user.getId() == id) {
                 userDao.getArrayList().remove(user);
+                bool = false;
             }
         }
-      //  userDao.getArrayList().stream().map(a -> a.getId()==id? userDao.getArrayList().remove(a):a).forEach(System.out::println);
-
-
-
+        if (bool) {
+            throw new MyException("There in no such ID");
+        }
     }
+
 
     @Override
     public ArrayList<User> allUser() {
